@@ -53,6 +53,8 @@ const addNewBookHandler = (request, h) => {
 };
 
 const getAllBookHandler = (request, h) => {
+  const { name } = request.query;
+  const result = books.filter((queryname) => queryname.name === name);
   const response = h.response({
     status: 'success',
     data: {
@@ -66,7 +68,7 @@ const getAllBookHandler = (request, h) => {
     },
   });
   response.code(200);
-  return response;
+  return result, response;
 };
 
 const getBookByIdHandler = (request, h) => {
