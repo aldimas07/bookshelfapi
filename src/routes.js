@@ -2,6 +2,11 @@ const { addNewBookHandler, getAllBookHandler, getBookByIdHandler, getBookByNameH
 
 const routes = [
   {
+    cors: {
+      origin: ['*'],
+    },
+  },
+  {
     method: 'POST',
     path: '/books',
     handler: addNewBookHandler,
